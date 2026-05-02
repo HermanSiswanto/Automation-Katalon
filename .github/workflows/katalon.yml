@@ -1,0 +1,28 @@
+name: Katalon Automation Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  katalon-test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download KRE
+        run: |
+          curl -L -o katalon.tar.gz https://github.com/katalon-studio/katalon-studio/releases/download/11.1.2/Katalon_Studio_Engine_MacOS_Arm64-11.1.2.tar.gz
+          tar -xvzf katalon.tar.gz
+
+      - name: Run Katalon Test
+        run: |
+          "./Katalon_Studio_Engine_MacOS_Arm64-11.1.2/Katalon Studio Engine.app/Contents/MacOS/katalonc" \
+          -runMode=console \
+          -projectPath="$(pwd)" \
+          -testSuitePath="Test Suites/LoginSuite" \
+          -browserType="Chrome (headless)" \
+          -apiKey=${{ secrets.KATALON_API_KEY }}
