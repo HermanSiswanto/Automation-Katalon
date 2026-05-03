@@ -24,5 +24,8 @@ jobs:
           -runMode=console \
           -projectPath="$GITHUB_WORKSPACE" \
           -testSuitePath="Test Suites/LoginSuite" \
-          -browserType="Chrome" \
+          -browserType="Chrome (headless)" \
+          -webui.autoUpdateDrivers=true \
+          -executionProfile="default" \
+          -retry=0 \
           -apiKey=${{ secrets.KATALON_API_KEY }}
