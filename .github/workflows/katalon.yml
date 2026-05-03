@@ -19,13 +19,12 @@ jobs:
           tar -xvzf katalon.tar.gz
 
       - name: Run Katalon Test
-        run: |
-          "./Katalon_Studio_Engine_MacOS_Arm64-11.1.2/Katalon Studio Engine.app/Contents/MacOS/katalonc" \
-          -runMode=console \
-          -projectPath="$GITHUB_WORKSPACE" \
-          -testSuitePath="Test Suites/LoginSuite" \
-          -browserType="Chrome (headless)" \
-          -webui.autoUpdateDrivers=true \
-          -executionProfile="default" \
-          -retry=0 \
-          -apiKey=${{ secrets.KATALON_API_KEY }}
+  		run: |
+    		"./Katalon_Studio_Engine_MacOS_Arm64-11.1.2/Katalon Studio Engine.app/Contents/MacOS/katalonc" \
+    		-runMode=console \
+    		-projectPath="$GITHUB_WORKSPACE" \
+    		-testSuitePath="Test Suites/LoginSuite" \
+    		-browserType="Chrome (headless)" \
+    		-executionProfile="default" \
+    		-retry=0 \
+   		 	-apiKey=${{ secrets.KATALON_API_KEY }}
