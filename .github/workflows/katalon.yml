@@ -15,7 +15,7 @@ jobs:
 
       - name: Download KRE
         run: |
-          curl -L -o katalon.tar.gz https://github.com/katalon-studio/katalon-studio/releases/download/11.1.2/Katalon_Studio_Engine_MacOS_Arm64-11.1.2.tar.gz
+          curl -L -o katalon.tar.gz https://github.com/katalon-studio/katalon-studio/releases/download/v11.1.2/Katalon_Studio_Engine_MacOS_Arm64-11.1.2.tar.gz
           tar -xvzf katalon.tar.gz
 
       - name: Run Katalon Test
