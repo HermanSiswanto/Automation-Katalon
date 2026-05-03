@@ -2,7 +2,7 @@ name: Katalon Automation Test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
         run: |
           "./Katalon_Studio_Engine_MacOS_Arm64-11.1.2/Katalon Studio Engine.app/Contents/MacOS/katalonc" \
           -runMode=console \
-          -projectPath="$(pwd)" \
+          -projectPath="$GITHUB_WORKSPACE" \
           -testSuitePath="Test Suites/LoginSuite" \
-          -browserType="Chrome (headless)" \
+          -browserType="Chrome" \
           -apiKey=${{ secrets.KATALON_API_KEY }}
